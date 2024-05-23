@@ -1,4 +1,4 @@
-package BX6_CP_OOP_16_MAY_Inheritances.Oops_Single_Inheritances1;
+package OOP_16_MAY_Inheritances.Oops_Single_Inheritances1;
 
 public class Lab_174 {
     public static void main(String[] args) {
