@@ -1,4 +1,4 @@
-package BX6_18_May_Of;
+package BX6_18_May_Of_Encapsulation;
 
 public class Lab_180 {
     // super()

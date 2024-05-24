@@ -1,4 +1,4 @@
-package BX6_18_May_Of;
+package BX6_18_May_Of_Encapsulation;
 
 public class Lab_183 {
     public static void main(String[] args) {
@@ -6,12 +6,10 @@ public class Lab_183 {
         // If child has DC -> PC DC will be called by
         // super() automatically in Java
        Person1 pc1 = new Person1();
-
        // super.variable
         // super.method()
         // super() -> DC
         // super("pramod') -> PC
-
     }
 }
 class Person1  {
@@ -28,9 +26,13 @@ class Person1  {
 class Student1 extends Person1 {
     Student1(){
      //  super();// default constructor
-      //  super("a");
-        super("Abhi", 7);
+      super("a");
+      // this("pramod");
+   //     super("Abhi", 7);
         System.out.println("Student1 - DC");
 
+    }
+    Student1(String s){
+        System.out.println("PC_student");
     }
 }

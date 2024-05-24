@@ -1,12 +1,10 @@
-package BX6_18_May_Of;
+package BX6_18_May_Of_Encapsulation;
 
 public class Lab_182 {
     public static void main(String[] args) {
         student s1 = new student();
         s1.messages();
         s1.display();
-
-
     }
 }
 class student extends Person{

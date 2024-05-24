@@ -1,9 +1,7 @@
-package BX6_18_May_Of;
+package BX6_18_May_Of_Encapsulation;
 
 public class Lab_181 {
     public static void main(String[] args) {
-
-
         // Super keyword in Java
         // parent -> child
         // Super keyword reference to parent class
@@ -14,7 +12,6 @@ public class Lab_181 {
         int speed = c.maxSpeed;
         System.out.println(speed);
         c.display();
-
     }
 }
         class car extends Vehicle {
