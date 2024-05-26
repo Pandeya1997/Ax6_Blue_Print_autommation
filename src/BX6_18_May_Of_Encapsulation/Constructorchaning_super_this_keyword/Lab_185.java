@@ -1,4 +1,4 @@
-package BX6_18_May_Of_Encapsulation.Constructorchaning_superthiskeyword;
+package BX6_18_May_Of_Encapsulation.Constructorchaning_super_this_keyword;
 
 public class Lab_185 {
     public static void main(String[] args) {
