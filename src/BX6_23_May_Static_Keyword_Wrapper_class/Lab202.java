@@ -11,6 +11,13 @@ public class Lab202 {
       p1.m1();
       p2.m1();
 
+      Person.footballClub= "Menu";
+        System.out.println(p1.footballClub);
+        System.out.println(p2.footballClub);
+
+
+        p1.name = "LUX";
+        System.out.println(p2.name);
         // Non-static -Ref
      p1.m2();
         p1.m2();
