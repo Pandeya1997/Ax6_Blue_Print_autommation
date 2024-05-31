@@ -21,7 +21,7 @@ public class Lab_204 {
     }
 }
 class A {
-   int age 10;
+   int age =10;
 static String common = "ABC";
     static {
         System.out.println("A");

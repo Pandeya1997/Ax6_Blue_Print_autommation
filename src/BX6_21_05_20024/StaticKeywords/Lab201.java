@@ -7,8 +7,23 @@ public class Lab201 {
     // Class
 
     // Static loads when Class is loaded. -
+    public static void main(String[] args) {
+//        ATB amit = new ATB("+919876543210");
+//        ATB pramod = new ATB("+123456789");
+//
+//        amit.printDetails();
+//        pramod.printDetails();
+//
+//        System.out.println(ATB.courseName);
+
+        ATB ashok = new ATB("+298743829");
+        ATB ashok2 = new ATB("+298743829");
+
+    }
+
 
 }
+
 class ATB {
 
     static {
@@ -21,4 +36,12 @@ class ATB {
 
 
     static String courseName = "ATB"; // Static Variable
-    String phoneNo; // Non static , Instance Variab
+    String phoneNo; // Non static , Instance Variable
+
+    public ATB(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+    public void printDetails(){
+        System.out.println("Your Details -> " +  this.phoneNo);
+    }
+}
