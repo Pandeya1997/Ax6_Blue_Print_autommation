@@ -1,4 +1,4 @@
-package BX6_25_may.collections;
+package BX6_25_may.collection;
 
 public enum HTTPStatus {
     OK(200, "OK"),
