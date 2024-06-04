@@ -7,7 +7,7 @@ public class Lab231 {
         // 4 elements
         // Collection Framework -> How you can store the elements
         // 1. List (Interface) ->ArrayList, LinkedList, Vector, Stack
-        List shoppoing_list = List.of("Milk", "Bread","Butter","cheese" );
+        List shoppoing_list = List.of("Milk", "Bread","Butter","cheese" ,"sonu");
         {
             System.out.println(shoppoing_list);
 // length
@@ -30,7 +30,6 @@ public class Lab231 {
 
             // add, remove, clear, contains, indexOf, isEmpty, size, get
             // addAll, removeAll, retainAll, containsAll
-
             fruites.add("grapes");
             System.out.println(fruites);
 
