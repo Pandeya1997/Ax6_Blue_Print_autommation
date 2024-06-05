@@ -23,5 +23,14 @@ public class Lab235 {
     myList.add("shubh");
         System.out.println(myList);
         // Abhishek , anusha, swati ;
+        myList.add("Abhishek");
+        myList.add("Abhishek");
+        myList.add("Abhishek");
+        myList.add("Abhishek");
+        System.out.println(myList);
+        System.out.println(myList.size());
+        myList.remove("Abhishek");
+        System.out.println(myList);
+
     }
 }
