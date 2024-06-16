@@ -11,6 +11,22 @@
 			"item": [
 				{
 					"name": "TC_01_Correct Credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// verify the status code \r",
+									"pm.test(\"verify status code \" ,function(){\r",
+									"  pm.response.to.have.status(200);  \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -83,41 +99,7 @@
 			"name": "Create Booking Testcase",
 			"item": [
 				{
-					"name": "Create Booking_TC_003",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstname\" : \"Abhishek\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 10000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-12\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://restful-booker.herokuapp.com/booking",
-							"protocol": "https",
-							"host": [
-								"restful-booker",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"booking"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Booking_TC_004",
+					"name": "TC_004_Create Booking_",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -151,7 +133,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Booking_TC_005",
+					"name": "TC_005_Create Booking",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -185,7 +167,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Booking_TC_006",
+					"name": "TC_006_Create Booking_",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -217,6 +199,417 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "TC_007Create Booking Check-in Date Feature and check-out past",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Abhishek\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 10000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-20\",\r\n        \"checkout\" : \"2024-06-12\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_008reate Booking Check-in Date missing",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"amit\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 10000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"\",\r\n        \"checkout\" : \"2024-06-12\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_009_Create Booking Check-out Date Missing",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"suraj\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 10000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0010Create Booking Deposit balance Field missing",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"rajnikant\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : ,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0011_Create Booking Deposit balance zero",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"rajnikant\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 0,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0012_Create Booking Method change Post method to Get method",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"rajnikant\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 526,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-20\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0013_Create Booking Method change Post method to put method",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"manish\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 526,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-20\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0014_Create Booking Method change Post method to PATCH method",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"manish\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 526,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-20\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0015_Create Booking Method change Post method to update method",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"manish\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 526,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-20\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0016_Create Booking Method change Post method to Head method",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"manish\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 526,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-20\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0017_Create Booking Method change Post method to  options method",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"manish\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 526,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-20\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_003_Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Abhishek\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 10000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-12\"\r\n    },\r\n    \"additionalneeds\" : \"Party time booking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -224,7 +617,7 @@
 			"name": "Get_All_Booking_IDs",
 			"item": [
 				{
-					"name": "Get All Booking_IDs_TC07",
+					"name": "TC018 Get All Booking IDs",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -244,10 +637,22 @@
 					"response": []
 				},
 				{
-					"name": "Get All Booking_IDs_TC08",
+					"name": "_TC0019_Get All Booking_IDs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"firstname\" : \"Abhishek\",\r\n    \"lastname\" : \"Pandey\",\r\n    \"totalprice\" : 10000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2024-06-12\",\r\n        \"checkout\" : \"2024-06-12\"\r\n}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "https://restful-booker.herokuapp.com/booking",
 							"protocol": "https",
@@ -307,8 +712,23 @@
 			"name": "Update Booking",
 			"item": [
 				{
-					"name": "Update Booking_TC_010",
+					"name": "TC_020_Full- Update Booking_",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -326,7 +746,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\" : \"Ashutosh\",\r\n    \"lastname\" : \"tiwari\",\r\n    \"totalprice\" : 9452,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"1994-03-14\",\r\n        \"checkout\" : \"2024-06-13\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+							"raw": "{\r\n        \"firstname\": \"Demanu\",\r\n        \"lastname\": \"Duaa\",\r\n        \"totalprice\": 10000,\r\n        \"depositpaid\": true,\r\n        \"bookingdates\": {\r\n            \"checkin\": \"2024-06-12\",\r\n            \"checkout\": \"2024-06-12\"\r\n        },\r\n        \"additionalneeds\": \"Party time booking\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -334,7 +754,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://restful-booker.herokuapp.com/booking/2215",
+							"raw": "https://restful-booker.herokuapp.com/booking/2253",
 							"protocol": "https",
 							"host": [
 								"restful-booker",
@@ -343,15 +763,30 @@
 							],
 							"path": [
 								"booking",
-								"2215"
+								"2253"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Partial Update Booking_TC_011",
+					"name": "TC_0021_Partial Update Booking",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [
 							{
@@ -369,7 +804,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\" : \"James\",\r\n    \"lastname\" : \"Brown\"\r\n}",
+							"raw": "{\r\n    \"firstname\" : \"amit\",\r\n    \"lastname\" : \"Pandey\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -377,7 +812,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://restful-booker.herokuapp.com/booking/1",
+							"raw": "https://restful-booker.herokuapp.com/booking/4567",
 							"protocol": "https",
 							"host": [
 								"restful-booker",
@@ -386,7 +821,65 @@
 							],
 							"path": [
 								"booking",
-								"1"
+								"4567"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC_0022_Booking Full update",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "token=abc123"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"James\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking/2476",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking",
+								"2476"
 							]
 						}
 					},
@@ -398,8 +891,23 @@
 			"name": "Delete Booking",
 			"item": [
 				{
-					"name": "Delete Booking_012",
+					"name": "TC_0023_Delete Booking",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
