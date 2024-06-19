@@ -1,4 +1,4 @@
-package BX6_18_may_oops_Encapsulation.Supkeywords;
+package Supkeywords;
 
 public class Lab_182 {
     public static void main(String[] args) {
